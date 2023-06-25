@@ -1,6 +1,9 @@
 ---
 - hosts: all
-  become: yes
+  become: true
+  roles:
+    - {role: ../roles/ping}
 
   tasks:
-   - ping
+  - name: include vaulted variables
+    include_vars: ~/vaults/secret
